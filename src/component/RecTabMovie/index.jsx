@@ -11,7 +11,7 @@ class RecTabMovie extends React.Component {
     for (let i = 0; i < tabs.length; i += 1) {
       tablist.push(
         <TabPane tab={tabs[i]} key={i}>
-          <RecMovieList url={url + i} />
+          <RecMovieList url={url + i} history={this.props.history} />
         </TabPane>,
       );
     }

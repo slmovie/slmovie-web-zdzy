@@ -2,12 +2,12 @@
  * @Author: BaojunCZ
  * @Date: 2019-01-04 17:34:33
  * @LastEditors: your name
- * @LastEditTime: 2019-01-08 14:21:05
+ * @LastEditTime: 2019-01-15 16:16:34
  * @Description: movie list componnt
  */
 import React from "react";
 import MovieCard from "../MovieCard";
-import getHotMovies from "../../utils/service";
+import Service from "../../utils/service";
 
 export default class RecMovieList extends React.Component {
   constructor() {
@@ -19,7 +19,7 @@ export default class RecMovieList extends React.Component {
 
   componentDidMount() {
     const { url } = this.props;
-    getHotMovies(url).then((data) => {
+    Service.getMovie(url).then((data) => {
       if (data !== undefined) {
         this.setState({ movies: data });
       }
@@ -33,7 +33,7 @@ export default class RecMovieList extends React.Component {
       const movieList = [];
       for (let x = 0; x < length; x += 1) {
         const moviesCol = [];
-        moviesCol.push(<MovieCard movie={movies[x]} />);
+        moviesCol.push(<MovieCard movie={movies[x]} history={this.props.history} />);
         movieList.push(
           <ul style={{
             listStyleType: "none",

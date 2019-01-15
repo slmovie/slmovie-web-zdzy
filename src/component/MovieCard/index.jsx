@@ -2,13 +2,13 @@
  * @Author: BaojunCZ
  * @Date: 2019-01-05 11:44:09
  * @LastEditors: your name
- * @LastEditTime: 2019-01-08 14:27:51
+ * @LastEditTime: 2019-01-15 17:02:49
  * @Description: movie card in homepage
  */
 import React from "react";
 
 const MovieCard = (props) => {
-  const { movie } = props;
+  const { movie, history } = props;
   return (
     <li style={{
       float: "left",
@@ -19,6 +19,7 @@ const MovieCard = (props) => {
       <div style={{
         display: "flex", flexDirection: "column", marginTop: "10px", alignItems: "center",
       }}
+        onClick={() => history.push('./detail/' + movie.address)}
       >
         <div style={{ position: "relative" }}>
           <img
