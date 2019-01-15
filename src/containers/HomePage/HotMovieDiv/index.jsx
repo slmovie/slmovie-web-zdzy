@@ -2,13 +2,13 @@
  * @Author: BaojunCZ
  * @Date: 2019-01-06 21:30:08
  * @LastEditors: your name
- * @LastEditTime: 2019-01-08 11:38:34
+ * @LastEditTime: 2019-01-15 13:53:50
  * @Description: hot movie component
  */
 import React from "react";
-import RecMovieList from "../../component/RecMovieList";
-import Title from "../../component/MovieListTitle";
-import RequestUrl from "../../constant/Url";
+import RecMovieList from "../../../component/RecMovieList";
+import Title from "../../../component/MovieListTitle";
+import RequestUrl from "../../../constant/Url";
 
 const HotMovieDiv = () => (
   <div style={{

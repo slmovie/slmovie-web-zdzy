@@ -2,15 +2,15 @@
  * @Author: BaojunCZ
  * @Date: 2019-01-03 19:21:28
  * @LastEditors: your name
- * @LastEditTime: 2019-01-08 13:42:07
+ * @LastEditTime: 2019-01-15 13:49:36
  */
 import React from "react";
 import { Layout } from "antd";
 import Header from "../../component/Header";
 import Footer from "../../component/Footer";
-import HotMovie from "../HotMovieDiv";
-import NewMovie from "../NewMovieDiv";
-import NewTv from "../NewTvDiv";
+import HotMovie from "./HotMovieDiv";
+import NewMovie from "./NewMovieDiv";
+import NewTv from "./NewTvDiv";
 
 const { Content } = Layout;
 

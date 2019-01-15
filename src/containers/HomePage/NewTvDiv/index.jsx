@@ -1,7 +1,7 @@
 import React from "react";
-import RecTabMovie from "../../component/RecTabMovie";
-import Title from "../../component/MovieListTitle";
-import RequestUrl from "../../constant/Url";
+import RecTabMovie from "../../../component/RecTabMovie";
+import Title from "../../../component/MovieListTitle";
+import RequestUrl from "../../../constant/Url";
 
 const NewMovieDiv = () => (
   <div style={{

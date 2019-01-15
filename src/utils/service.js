@@ -1,5 +1,3 @@
-import RequestUrl from "../constant/Url";
-
 export default async function getRecMovies(url) {
   try {
     const response = await fetch(url);
