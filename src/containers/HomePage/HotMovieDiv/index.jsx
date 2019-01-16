@@ -2,7 +2,7 @@
  * @Author: BaojunCZ
  * @Date: 2019-01-06 21:30:08
  * @LastEditors: your name
- * @LastEditTime: 2019-01-15 16:14:36
+ * @LastEditTime: 2019-01-15 19:51:53
  * @Description: hot movie component
  */
 import React from "react";
@@ -16,7 +16,9 @@ const HotMovieDiv = (props) => (
   }}
   >
     <Title title1="热门" title2="电影" />
-    <RecMovieList url={RequestUrl.WebRoot + RequestUrl.IndexHotMovies} history={props.history} />
+    <div style={{ marginLeft: '30px' }}>
+      <RecMovieList url={RequestUrl.WebRoot + RequestUrl.IndexHotMovies} history={props.history} />
+    </div>
   </div>
 );
 

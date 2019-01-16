@@ -2,7 +2,7 @@
  * @Author: BaojunCZ
  * @Date: 2019-01-03 19:21:28
  * @LastEditors: your name
- * @LastEditTime: 2019-01-15 16:58:12
+ * @LastEditTime: 2019-01-15 18:06:12
  */
 import React from "react";
 import { Layout } from "antd";
@@ -23,7 +23,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <Layout>
-        <Header />
+        <Header history={this.props.history} />
         <Content style={{
           marginTop: "5vh", marginLeft: "10vw", marginRight: "10vw", textAlign: "center",
         }}

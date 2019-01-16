@@ -13,7 +13,6 @@ const Service = {
     }
     return undefined;
   },
-
 }
 
 export default Service;

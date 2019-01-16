@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: BaojunCZ
  * @Date: 2019-01-04 17:18:09
- * @LastEditTime: 2019-01-15 15:00:22
+ * @LastEditTime: 2019-01-15 17:34:13
  * @LastEditors: your name
  */
 // exports.WebRoot = "http://www.slys.in";
@@ -13,7 +13,7 @@
 // exports.IndexNewTVs = "/index/newTVs?index=";
 const Urls = {
   WebRoot: "http://www.slys.in",
-  SearchAll: "/search/all",
+  SearchAll: "/search/all?name=",
   Detail: "/detail?code=",
   IndexHotMovies: "/index/hotMovies",
   IndexNewMovies: "/index/newMovies?index=",

@@ -19,7 +19,6 @@ interface States {
   movie: any,
 }
 
-
 export default class DetailPage extends React.Component<Props, States> {
 
   constructor(props: Props) {
