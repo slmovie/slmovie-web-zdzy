@@ -2,7 +2,7 @@
  * @Author: BaojunCZ
  * @Date: 2019-01-04 17:34:33
  * @LastEditors: your name
- * @LastEditTime: 2019-01-15 20:26:42
+ * @LastEditTime: 2019-01-16 16:17:48
  * @Description: movie list componnt
  */
 import React from "react";
@@ -27,7 +27,6 @@ export default class RecMovieList extends React.Component {
 
   componentDidMount() {
     const { url, movies } = this.props;
-    console.log(movies);
     if (movies === undefined) {
       Service.getMovie(url).then((data) => {
         if (data !== undefined) {
