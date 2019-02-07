@@ -2,7 +2,7 @@
  * @Author: BaojunCZ
  * @Date: 2019-01-06 21:41:03
  * @LastEditors: your name
- * @LastEditTime: 2019-01-15 20:30:46
+ * @LastEditTime: 2019-02-07 17:22:19
  * @Description: Header
  */
 import React from "react";
@@ -38,7 +38,7 @@ const SearchDiv = (props) => {
         style={{ width: "35vw" }}
         onSearch={value => {
           if (value.length > 0) {
-            props.history.push("/search/" + value);
+            props.history.push("/find/" + value);
           }
         }} />
     </div>

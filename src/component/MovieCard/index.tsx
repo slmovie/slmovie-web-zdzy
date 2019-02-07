@@ -2,7 +2,7 @@
  * @Author: BaojunCZ
  * @Date: 2019-01-05 11:44:09
  * @LastEditors: your name
- * @LastEditTime: 2019-01-16 11:41:04
+ * @LastEditTime: 2019-02-07 17:19:55
  * @Description: movie card in homepage
  */
 import React from "react";
@@ -47,9 +47,9 @@ export default class MovieCard extends React.Component<Props, States> {
         }}
           onClick={() => {
             if (this.props.movie.address === undefined) {
-              this.props.history.push('/detail/' + this.props.movie.id)
+              this.props.history.push('/sub/' + this.props.movie.id)
             } else {
-              this.props.history.push('/detail/' + this.props.movie.address)
+              this.props.history.push('/sub/' + this.props.movie.address)
             }
           }}
         >
