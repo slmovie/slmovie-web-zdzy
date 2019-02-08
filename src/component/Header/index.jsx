@@ -2,7 +2,7 @@
  * @Author: BaojunCZ
  * @Date: 2019-01-06 21:41:03
  * @LastEditors: your name
- * @LastEditTime: 2019-02-07 17:22:19
+ * @LastEditTime: 2019-02-08 14:10:43
  * @Description: Header
  */
 import React from "react";
@@ -26,7 +26,7 @@ const Styles = {
 
 const Header = (props) => (
   <div style={Styles.Content}>
-    <div style={{ textAlign: "center" }}><text style={{ color: "#fff", fontSize: "2em" }}>双龙影视</text></div>
+    <div style={{ textAlign: "center" }}><a href="http://slys.in"><text style={{ color: "#fff", fontSize: "2em" }}>双龙影视</text></a></div>
     {SearchDiv(props)}
   </div>
 );
