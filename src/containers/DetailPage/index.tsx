@@ -70,19 +70,18 @@ export default class DetailPage extends React.Component<Props, States> {
   //渲染详情页面
   _renderDetail() {
     if (this.state.movie !== undefined) {
-      const average = parseFloat(this.state.movie.details.average);
       return (
         <div>
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <div style={{ display: 'flex', alignContent: 'center', flexDirection: 'column', textAlign: 'center' }}>
               <img src={this.state.movie.post} alt={"post"} style={Styles.PostImg} />
-              <Rate defaultValue={average / 2} allowHalf={true} disabled={true} style={{ marginTop: 10 }} />
+              {this._renderAverageStar()}
             </div>
             <ul style={Styles.InfoUl}>
               {this._renderInfo()}
               {this._renderImdb()}
               {this._renderDouban()}
-              <li style={Styles.InfoLi}>{"评分：" + average}</li>
+              {this._renderAverage()}
             </ul>
           </div>
           {this._getDescribe(this.state.movie.describe)}
@@ -115,25 +114,44 @@ export default class DetailPage extends React.Component<Props, States> {
   }
 
   _renderImdb() {
-    return (
-      <li style={Styles.InfoLi}>
-        <text>{"IMDB："}</text>
-        <a href={"https://www.imdb.com/title/" + this.state.movie.details.IMDB} target="_blank" rel="noopener noreferrer">
-          {this.state.movie.details.IMDB}
-        </a>
-      </li>
-    )
+    if (this.state.movie.details.IMDB)
+      return (
+        <li style={Styles.InfoLi}>
+          <text>{"IMDB："}</text>
+          <a href={"https://www.imdb.com/title/" + this.state.movie.details.IMDB} target="_blank" rel="noopener noreferrer">
+            {this.state.movie.details.IMDB}
+          </a>
+        </li>
+      )
   }
 
   _renderDouban() {
-    return (
-      <li style={Styles.InfoLi}>
-        <text>{"豆瓣："}</text>
-        <a href={"https://movie.douban.com/subject/" + this.state.movie.doubanID} target="_blank" rel="noopener noreferrer">
-          {this.state.movie.doubanID}
-        </a>
-      </li>
-    )
+    if (this.state.movie.doubanID)
+      return (
+        <li style={Styles.InfoLi}>
+          <text>{"豆瓣："}</text>
+          <a href={"https://movie.douban.com/subject/" + this.state.movie.doubanID} target="_blank" rel="noopener noreferrer">
+            {this.state.movie.doubanID}
+          </a>
+        </li>
+      )
+  }
+
+  _renderAverageStar() {
+    if (this.state.movie.details.average !== "0") {
+      const average = parseFloat(this.state.movie.details.average);
+      return (
+        <Rate defaultValue={average / 2} allowHalf={true} disabled={true} style={{ marginTop: 10 }} />
+      )
+    }
+  }
+
+  _renderAverage() {
+    if (this.state.movie.details.average !== "0") {
+      return (
+        <li style={Styles.InfoLi}>{"评分：" + this.state.movie.details.average}</li>
+      )
+    }
   }
 
   _getDescribe(describe: string) {
