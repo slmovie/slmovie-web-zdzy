@@ -50,7 +50,7 @@ export default class SearchPage extends React.Component<Props, States> {
     return (
       <Layout>
         <Header history={this.props.history} />
-        <Content style={{ marginTop: "5vh", marginLeft: "10vw", marginRight: "10vw", textAlign: "center", }}>
+        <Content style={{ marginTop: "5vmin", marginLeft: "5vmin", marginRight: "5vmin", textAlign: "center", }}>
           {this._render()}
         </Content>
         <Footer />
@@ -96,10 +96,10 @@ export default class SearchPage extends React.Component<Props, States> {
             textAlign: "center",
             borderRadius: "10px",
             background: "#fff",
-            paddingTop: 30,
-            paddingBottom: 30,
+            paddingTop: "5vmin",
+            paddingBottom: "5vmin",
           }}>
-            <div style={{ textAlign: 'center', marginLeft: '30px' }}>
+            <div style={{ textAlign: 'center', marginLeft: '3vmin' }}>
               <RecMovieList movies={this.state.showMovies} history={this.props.history} />
             </div>
             <Pagination defaultCurrent={1} total={this.state.total} defaultPageSize={pageSize} onChange={(page) => {
