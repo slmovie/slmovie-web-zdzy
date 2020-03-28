@@ -20,7 +20,7 @@ class RecTabMovie extends React.Component {
 
   render() {
     return (
-      <Tabs defaultActiveKey="0" style={{ marginLeft: "30px", marginRight: "20px" }}>
+      <Tabs defaultActiveKey="0" style={{ marginLeft: "2vmin", marginRight: "2vmin" }}>
         {this.renderTabs()}
       </Tabs>
     );

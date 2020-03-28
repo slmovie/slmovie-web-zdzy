@@ -17,17 +17,21 @@ const Styles = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingLeft: "10vw",
-    paddingRight: "10vw",
+    paddingLeft: "10vmin",
+    paddingRight: "5vmin",
     background: Color.PrimaryColor,
-    height: "80px",
+    height: "14vmin",
     flexWrap: "wrap",
   },
 };
 
 const Header = (props) => (
   <div style={Styles.Content}>
-    <div style={{ textAlign: "center" }}><a href={Urls.WebRoot}><text style={{ color: "#fff", fontSize: "2em" }}>双龙影视</text></a></div>
+    <div style={{ textAlign: "center" }}>
+      <a href={Urls.WebRoot}>
+        <text style={{ color: "#fff", fontSize: "6vmin" }}>双龙影视</text>
+      </a>
+    </div>
     {SearchDiv(props)}
   </div>
 );
@@ -36,7 +40,8 @@ const SearchDiv = (props) => {
   if (props.history !== undefined) {
     return <div style={{ textAlign: "center" }}>
       <Search placeholder="片名/导演/演员"
-        style={{ width: "35vw" }}
+        style={{ width: "45vmin" }}
+        size="small"
         onSearch={value => {
           if (value.length > 0) {
             props.history.push("/find/" + value);

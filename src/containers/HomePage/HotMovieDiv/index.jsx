@@ -16,7 +16,7 @@ const HotMovieDiv = (props) => (
   }}
   >
     <Title title1="热门" title2="电影" />
-    <div style={{ marginLeft: '30px' }}>
+    <div style={{ marginLeft: '2vmin' }}>
       <RecMovieList url={RequestUrl.WebRoot + RequestUrl.IndexHotMovies} history={props.history} />
     </div>
   </div>

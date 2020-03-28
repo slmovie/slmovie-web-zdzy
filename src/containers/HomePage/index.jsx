@@ -21,7 +21,7 @@ class HomePage extends React.Component {
       <Layout>
         <Header history={this.props.history} />
         <Content style={{
-          marginTop: "5vh", marginLeft: "10vw", marginRight: "10vw", textAlign: "center",
+          marginTop: "5vmin", marginLeft: "3vw", marginRight: "3vw", textAlign: "center",
         }}
         >
           <HotMovie history={this.props.history} />

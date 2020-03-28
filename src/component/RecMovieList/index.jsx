@@ -62,7 +62,7 @@ export default class RecMovieList extends React.Component {
   render() {
     return (
       <div style={{
-        marginLeft: "15px", marginRight: "15px", marginBottom: "10px",
+        marginLeft: "1vw", marginRight: "1vw", marginBottom: "1vh",
       }}
       >
         {this.renderList()}

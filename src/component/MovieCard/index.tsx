@@ -38,12 +38,12 @@ export default class MovieCard extends React.Component<Props, States> {
     return (
       <li style={{
         float: "left",
-        paddingLeft: 17,
-        paddingRight: 17,
+        paddingLeft: "0.5vw",
+        paddingRight: "0.5vw",
       }}
       >
         <div style={{
-          display: "flex", flexDirection: "column", marginTop: "10px", alignItems: "center",
+          display: "flex", flexDirection: "column", marginTop: "1vmin", alignItems: "center", width: "13vmax", height: "25vmax"
         }}
           onClick={() => {
             if (this.props.movie.address === undefined) {
@@ -58,7 +58,7 @@ export default class MovieCard extends React.Component<Props, States> {
               src={this.state.post}
               alt="post"
               style={{
-                width: 150, height: 207,
+                width: "13vmax", height: "18vmax",
               }}
               onError={() => this.setState({ post: imgHolder })}
             />
@@ -66,7 +66,7 @@ export default class MovieCard extends React.Component<Props, States> {
               position: "absolute",
               overflow: "hidden",
               color: "#000000",
-              fontSize: 12,
+              fontSize: "1.5vmax",
               textAlign: "center",
               backgroundColor: "#d0d0d0",
               paddingLeft: 5,
@@ -82,7 +82,7 @@ export default class MovieCard extends React.Component<Props, States> {
               right: 0,
               overflow: "hidden",
               color: "#000000",
-              fontSize: 12,
+              fontSize: "1.5vmax",
               textAlign: "center",
               backgroundColor: "#d0d0d0",
               paddingLeft: 5,
@@ -95,8 +95,8 @@ export default class MovieCard extends React.Component<Props, States> {
           <text style={{
             marginTop: "5px",
             fontWeight: "bold",
-            fontSize: 15,
-            width: 130,
+            fontSize: "2vmax",
+            width: "13vmax",
             overflow: "hidden",
             whiteSpace: "nowrap",
             textOverflow: "ellipsis",
