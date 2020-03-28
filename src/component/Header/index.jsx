@@ -8,6 +8,7 @@
 import React from "react";
 import { Input } from "antd";
 import Color from "../../utils/color";
+import Urls from "../../constant/Url";
 
 const Search = Input.Search;
 
@@ -26,7 +27,7 @@ const Styles = {
 
 const Header = (props) => (
   <div style={Styles.Content}>
-    <div style={{ textAlign: "center" }}><a href="http://slys.in"><text style={{ color: "#fff", fontSize: "2em" }}>双龙影视</text></a></div>
+    <div style={{ textAlign: "center" }}><a href={Urls.WebRoot}><text style={{ color: "#fff", fontSize: "2em" }}>双龙影视</text></a></div>
     {SearchDiv(props)}
   </div>
 );
