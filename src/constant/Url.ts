@@ -5,14 +5,8 @@
  * @LastEditTime: 2019-01-15 17:34:13
  * @LastEditors: your name
  */
-// exports.WebRoot = "http://www.slys.in";
-// exports.SearchAll = "/search/all";
-// exports.Detail = "/detail";
-// exports.IndexHotMovies = "/index/hotMovies";
-// exports.IndexNewMovies = "/index/newMovies?index=";
-// exports.IndexNewTVs = "/index/newTVs?index=";
 const Urls = {
-  WebRoot: "http://www.slys.in",
+  WebRoot: "http://localhost:3001",
   SearchAll: "/search/all?name=",
   Detail: "/detail?code=",
   IndexHotMovies: "/index/hotMovies",
