@@ -11,14 +11,10 @@ import Footer from "../../component/Footer";
 import HotMovie from "./HotMovieDiv";
 import NewMovie from "./NewMovieDiv";
 import NewTv from "./NewTvDiv";
-import PropTypes from 'prop-types';
 
 const { Content } = Layout;
 
 class HomePage extends React.Component {
-  static contextTypes = {
-    router: PropTypes.object.isRequired
-  };
 
   render() {
     return (
@@ -28,9 +24,9 @@ class HomePage extends React.Component {
           marginTop: "5vh", marginLeft: "10vw", marginRight: "10vw", textAlign: "center",
         }}
         >
-          <HotMovie history={this.context.router.history} />
-          <NewMovie history={this.context.router.history} />
-          <NewTv history={this.context.router.history} />
+          <HotMovie history={this.props.history} />
+          <NewMovie history={this.props.history} />
+          <NewTv history={this.props.history} />
         </Content>
         <Footer />
       </Layout >
