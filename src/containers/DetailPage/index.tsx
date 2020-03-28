@@ -36,17 +36,17 @@ export default class DetailPage extends React.Component<Props, States> {
     return (
       <Layout>
         <Header />
-        <Content style={{ marginTop: "5vh", marginLeft: "10vw", marginRight: "10vw" }}>
+        <Content style={{ marginTop: "5vmin", marginLeft: "5vmin", marginRight: "5vmin" }}>
           <div style={{
             display: "flex",
             flexDirection: "column",
             textAlign: "left",
             borderRadius: "10px",
             background: "#fff",
-            paddingLeft: 50,
-            paddingRight: 50,
-            paddingTop: 30,
-            paddingBottom: 30,
+            paddingLeft: "5vmin",
+            paddingRight: "5vmin",
+            paddingTop: "3vmin",
+            paddingBottom: "3vmin",
           }}>
             {this._renderDetail()}
           </div>
@@ -71,19 +71,17 @@ export default class DetailPage extends React.Component<Props, States> {
   _renderDetail() {
     if (this.state.movie !== undefined) {
       return (
-        <div>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <div style={{ display: 'flex', alignContent: 'center', flexDirection: 'column', textAlign: 'center' }}>
-              <img src={this.state.movie.post} alt={"post"} style={Styles.PostImg} />
-              {this._renderAverageStar()}
-            </div>
-            <ul style={Styles.InfoUl}>
-              {this._renderInfo()}
-              {this._renderImdb()}
-              {this._renderDouban()}
-              {this._renderAverage()}
-            </ul>
+        <div style={{ marginTop: "2vmax" }}>
+          <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', textAlign: 'center', justifyItems: 'center' }}>
+            <img src={this.state.movie.post} alt={"post"} style={Styles.PostImg} />
+            {this._renderAverageStar()}
           </div>
+          <ul style={Styles.InfoUl}>
+            {this._renderInfo()}
+            {this._renderImdb()}
+            {this._renderDouban()}
+            {this._renderAverage()}
+          </ul>
           {this._getDescribe(this.state.movie.describe)}
           <ul style={Styles.UrlsUl}>
             {this._renderUrls()}
@@ -158,7 +156,9 @@ export default class DetailPage extends React.Component<Props, States> {
     if (describe !== '') {
       return (
         <ul style={Styles.DescribeUl}>
-          <li style={Styles.DescribeTitle}>剧情简介</li>
+          <li style={{ fontSize: "2.5vmax", fontWeight: "bold" }}>
+            <text >剧情简介</text>
+          </li>
           <li style={Styles.DescribeText}>{describe}</li>
         </ul>
       )
@@ -185,7 +185,7 @@ export default class DetailPage extends React.Component<Props, States> {
     name = name + url.name
     return (
       <li style={Styles.UrlLi}>
-        <a href={url.download} style={{ textDecoration: 'none' }}>{name}</a>
+        <a href={url.download} style={{ textDecoration: 'none', fontSize: "2vmax" }}>{name}</a>
         <div>
           <input style={Styles.UrlInput}
             value={url.download}
@@ -200,23 +200,20 @@ export default class DetailPage extends React.Component<Props, States> {
 const
   Styles = {
     Content: {
-      width: 1000,
       marginLeft: 'auto',
       marginRight: 'auto',
     },
     PostImg: {
-      width: 200,
-      height: 200 * 180 / 130,
+      width: "50vmin",
+      height: "69vmin",
     },
     InfoUl: {
       listStyleType: 'none',
       padding: 0,
-      marginLeft: 40,
-      // width: '50%'
     },
     InfoLi: {
-      fontSize: 15,
-      marginTop: 6,
+      fontSize: "1.7vmax",
+      marginTop: "0.5vmax",
     },
     UrlsUl: {
       listStyleType: 'none',
@@ -224,29 +221,26 @@ const
       marginTop: 30,
     },
     UrlLi: {
-      fontSize: 20,
-      marginTop: 15,
+      fontSize: "1.7vmax",
+      marginTop: "0.5vmax",
     },
     UrlInput: {
-      fontSize: 18,
+      fontSize: "2vmax",
       width: '100%',
       backgroundColor: '#f9f9f9',
       border: 'solid',
       borderColor: '#e4e4e4',
       borderWidth: 1,
-      textOverflow: 'ellipsis'
+      textOverflow: 'ellipsis',
     },
     DescribeUl: {
       listStyleType: 'none',
       padding: 0,
       marginTop: 30,
     },
-    DescribeTitle: {
-      fontSize: 20,
-    },
     DescribeText: {
-      fontSize: 16,
+      fontSize: "1.7vmax",
       width: '100%',
-      marginTop: 20,
+      marginTop: "1vmax",
     }
   }
