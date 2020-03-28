@@ -6,7 +6,7 @@
  * @LastEditors: your name
  */
 const Urls = {
-  WebRoot: "http://localhost:3001",
+  WebRoot: "http://localhost:3000",
   SearchAll: "/search/all?name=",
   Detail: "/detail?code=",
   IndexHotMovies: "/index/hotMovies",
