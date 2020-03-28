@@ -15,6 +15,7 @@ interface Props {
       search: string
     }
   },
+  history: any
 }
 
 interface States {
@@ -48,7 +49,7 @@ export default class SearchPage extends React.Component<Props, States> {
   render() {
     return (
       <Layout>
-        <Header history={this.context.router.history} />
+        <Header history={this.props.history} />
         <Content style={{ marginTop: "5vh", marginLeft: "10vw", marginRight: "10vw", textAlign: "center", }}>
           {this._render()}
         </Content>
@@ -99,7 +100,7 @@ export default class SearchPage extends React.Component<Props, States> {
             paddingBottom: 30,
           }}>
             <div style={{ textAlign: 'center', marginLeft: '30px' }}>
-              <RecMovieList movies={this.state.showMovies} history={this.context.router.history} />
+              <RecMovieList movies={this.state.showMovies} history={this.props.history} />
             </div>
             <Pagination defaultCurrent={1} total={this.state.total} defaultPageSize={pageSize} onChange={(page) => {
               this.setState({ showMovies: this._getShowMovies(page - 1) });
