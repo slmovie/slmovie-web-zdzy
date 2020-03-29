@@ -12,7 +12,7 @@ const Urls = {
   IndexHotMovies: "/index/hotMovies",
   IndexNewMovies: "/index/newMovies?index=",
   IndexNewTVs: "/index/newTVs?index=",
-  SLYS:"www.slys.in"
+  SLYS:"http://www.slys.in"
 };
 
 export default Urls;
