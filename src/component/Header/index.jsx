@@ -28,7 +28,7 @@ const Styles = {
 const Header = (props) => (
   <div style={Styles.Content}>
     <div style={{ textAlign: "center" }}>
-      <a href={Urls.WebRoot}>
+      <a href={Urls.SLYS}>
         <text style={{ color: "#fff", fontSize: "6vmin" }}>双龙影视</text>
       </a>
     </div>

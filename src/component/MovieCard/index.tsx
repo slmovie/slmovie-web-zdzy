@@ -47,9 +47,9 @@ export default class MovieCard extends React.Component<Props, States> {
         }}
           onClick={() => {
             if (this.props.movie.address === undefined) {
-              window.open("http://152.136.103.63:3000/sub/" + this.props.movie.id)
+              this.props.history.push('/sub/' + this.props.movie.id)
             } else {
-              window.open("http://152.136.103.63:3000/sub/" + this.props.movie.address)
+              this.props.history.push('/sub/' + this.props.movie.address)
             }
           }}
         >
