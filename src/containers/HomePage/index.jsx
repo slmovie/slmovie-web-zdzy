@@ -5,7 +5,7 @@
  * @LastEditTime: 2019-01-15 18:06:12
  */
 import React from "react";
-import { Layout } from "antd";
+import Layout from "antd/es/layout"
 import Header from "../../component/Header";
 import Footer from "../../component/Footer";
 import HotMovie from "./HotMovieDiv";

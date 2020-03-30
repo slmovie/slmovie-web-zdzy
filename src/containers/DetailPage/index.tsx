@@ -1,7 +1,10 @@
 import * as React from 'react';
 import Urls from '../../constant/Url';
 import Service from '../.././utils/service';
-import { Layout, Spin, message, Rate } from "antd";
+import Layout from "antd/es/layout"
+import Spin from "antd/es/spin"
+import message from "antd/es/message"
+import Rate from "antd/es/rate"
 import Header from "../../component/Header";
 import Footer from "../../component/Footer";
 

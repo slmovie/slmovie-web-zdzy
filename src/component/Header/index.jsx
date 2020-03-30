@@ -6,7 +6,7 @@
  * @Description: Header
  */
 import React from "react";
-import { Input } from "antd";
+import Input from "antd/es/input";
 import Color from "../../utils/color";
 import Urls from "../../constant/Url";
 
