@@ -4,8 +4,8 @@ const Service = {
       const response = await fetch(url);
       if (response.status === 200) {
         const data = await response.json();
-        if (data.status.code === 1) {
-          return data.movies;
+        if (data.status === 0) {
+          return data.result;
         }
       }
     } catch (err) {

@@ -4,9 +4,10 @@ import Service from '../.././utils/service';
 import Layout from "antd/es/layout"
 import Spin from "antd/es/spin"
 import message from "antd/es/message"
-import Rate from "antd/es/rate"
 import Header from "../../component/Header";
 import Footer from "../../component/Footer";
+import { IMovieDetail, IMovieFile } from '../../typing/detail-typing';
+import { getMovieType } from '../../utils/movie-type';
 
 const { Content } = Layout;
 
@@ -19,7 +20,7 @@ interface Props {
 }
 
 interface States {
-  movie: any,
+  movie: IMovieDetail | undefined,
 }
 
 export default class DetailPage extends React.Component<Props, States> {
@@ -61,7 +62,7 @@ export default class DetailPage extends React.Component<Props, States> {
 
   _getMovie() {
     const url = Urls.WebRoot + Urls.Detail + this.props.match.params.id;
-    Service.getMovie(url).then((data) => {
+    Service.getMovie(url).then((data: IMovieDetail) => {
       if (data !== undefined) {
         this.setState({ movie: data });
       } else {
@@ -77,18 +78,14 @@ export default class DetailPage extends React.Component<Props, States> {
         <div style={{ marginTop: "2vmax" }}>
           <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', textAlign: 'center', justifyItems: 'center' }}>
             <img src={this.state.movie.post} alt={"post"} style={Styles.PostImg} />
-            {this._renderAverageStar()}
           </div>
           <ul style={Styles.InfoUl}>
             {this._renderInfo()}
-            {this._renderImdb()}
-            {this._renderDouban()}
-            {this._renderAverage()}
           </ul>
           {this._getDescribe(this.state.movie.describe)}
-          <ul style={Styles.UrlsUl}>
-            {this._renderUrls()}
-          </ul>
+          {this._renderDownloadDiv(this.state.movie.downloadUrls)}
+          {this._renderOnlineDiv("在线播放", this.state.movie.webUrls)}
+          {this._renderOnlineDiv("m3u8 在线播放", this.state.movie.m3u8Urls)}
         </div>
       )
     } else {
@@ -98,11 +95,17 @@ export default class DetailPage extends React.Component<Props, States> {
 
   //渲染电影信息
   _renderInfo() {
+    const { movie } = this.state
     let info = []
-    for (let i = 0; i < this.state.movie.detail.length; i++) {
-      if (this.state.movie.detail[i] !== '详情:')
-        if (this.state.movie.detail[i].indexOf("IMDB") === -1)
-          info.push(this._getInfo(this.state.movie.detail[i]))
+    if (movie) {
+      info.push(this._getInfo("片名：" + movie.name))
+      info.push(this._getInfo("上映年代：" + movie.year))
+      info.push(this._getInfo("地区：" + movie.location))
+      if (movie.type) {
+        info.push(this._getInfo("类型：" + getMovieType(Number(movie.type))))
+      }
+      info.push(this._getInfo("导演： " + movie.director))
+      info.push(this._getInfo("主演：" + movie.actor))
     }
     return info;
   }
@@ -112,47 +115,6 @@ export default class DetailPage extends React.Component<Props, States> {
     return (
       <li style={Styles.InfoLi}>{info}</li>
     )
-  }
-
-  _renderImdb() {
-    if (this.state.movie.details.IMDB)
-      return (
-        <li style={Styles.InfoLi}>
-          <text>{"IMDB："}</text>
-          <a href={"https://www.imdb.com/title/" + this.state.movie.details.IMDB} target="_blank" rel="noopener noreferrer">
-            {this.state.movie.details.IMDB}
-          </a>
-        </li>
-      )
-  }
-
-  _renderDouban() {
-    if (this.state.movie.doubanID)
-      return (
-        <li style={Styles.InfoLi}>
-          <text>{"豆瓣："}</text>
-          <a href={"https://movie.douban.com/subject/" + this.state.movie.doubanID} target="_blank" rel="noopener noreferrer">
-            {this.state.movie.doubanID}
-          </a>
-        </li>
-      )
-  }
-
-  _renderAverageStar() {
-    if (this.state.movie.details.average !== "0") {
-      const average = parseFloat(this.state.movie.details.average);
-      return (
-        <Rate defaultValue={average / 2} allowHalf={true} disabled={true} style={{ marginTop: 10 }} />
-      )
-    }
-  }
-
-  _renderAverage() {
-    if (this.state.movie.details.average !== "0") {
-      return (
-        <li style={Styles.InfoLi}>{"评分：" + this.state.movie.details.average}</li>
-      )
-    }
   }
 
   _getDescribe(describe: string) {
@@ -170,32 +132,79 @@ export default class DetailPage extends React.Component<Props, States> {
     }
   }
 
+  _renderDownloadDiv(downloadUrls: IMovieFile[] | undefined) {
+    if (downloadUrls)
+      return (
+        <div>
+          <text style={{ fontSize: "2.5vmax", fontWeight: "bold" }}>
+            下载地址
+        </text>
+          <ul style={Styles.UrlsUl}>
+            {this._renderDownloadUrls(downloadUrls)}
+          </ul>
+        </div>
+      )
+  }
+
   //渲染下载链接
-  _renderUrls() {
+  _renderDownloadUrls(downloadUrls: IMovieFile[]) {
     let urls = []
-    for (let i = 0; i < this.state.movie.files.length; i++) {
-      urls.push(this._getUrl(this.state.movie.files[i]))
+    for (let i = 0; i < downloadUrls.length; i++) {
+      urls.push(this._getDownloadUrl(downloadUrls[i]))
     }
     return urls;
   }
 
   //下载地址样式
-  _getUrl(url: any) {
-    let name = ''
-    if (url.fileSize !== '') {
-      name = '[' + url.fileSize + ']'
-    }
-    name = name + url.name
-    return (
-      <li style={Styles.UrlLi}>
-        <a href={url.download} style={{ textDecoration: 'none', fontSize: "2vmax" }}>{name}</a>
+  _getDownloadUrl(file: IMovieFile) {
+    if (file)
+      return (
+        <li style={Styles.UrlLi}>
+          <a href={file.url} style={{ textDecoration: 'none', fontSize: "2vmax" }}>{file.name}</a>
+          <div>
+            <input style={Styles.UrlInput}
+              value={file.url}
+              onFocus={(e) => e.target.select()} />
+          </div>
+        </li>
+      )
+  }
+
+  _renderOnlineDiv(title: string, webUrls: IMovieFile[] | undefined) {
+    if (webUrls) {
+      return (
         <div>
-          <input style={Styles.UrlInput}
-            value={url.download}
-            onFocus={(e) => e.target.select()} />
+          <text style={{ fontSize: "2.5vmax", fontWeight: "bold" }}>
+            {title}
+          </text>
+          <ul style={Styles.UrlsUl}>
+            {this._renderOnlineUrls(webUrls)}
+          </ul>
         </div>
-      </li>
-    )
+      )
+    }
+  }
+
+  _renderOnlineUrls(webUrls: IMovieFile[]) {
+    let urls = []
+    for (let i = 0; i < webUrls.length; i++) {
+      urls.push(this._getOnlineUrl(webUrls[i]))
+    }
+    return urls;
+  }
+
+  _getOnlineUrl(file: IMovieFile) {
+    if (file)
+      return (
+        <li style={{
+          fontSize: "1.7vmax",
+          marginTop: "0.5vmax",
+          marginRight: "0.5vmax",
+          float: "left",
+        }}>
+          <a href={file.url} style={{ display: 'inline-block', fontSize: "2vmax" }}>{file.name}</a>
+        </li>
+      )
   }
 
 }
@@ -221,7 +230,7 @@ const
     UrlsUl: {
       listStyleType: 'none',
       padding: 0,
-      marginTop: 30,
+      marginTop: 10,
     },
     UrlLi: {
       fontSize: "1.7vmax",
@@ -230,11 +239,12 @@ const
     UrlInput: {
       fontSize: "2vmax",
       width: '100%',
+      paddingLeft: "5px",
       backgroundColor: '#f9f9f9',
       border: 'solid',
       borderColor: '#e4e4e4',
       borderWidth: 1,
-      textOverflow: 'ellipsis',
+      textOverflow: 'ellipsis'
     },
     DescribeUl: {
       listStyleType: 'none',
