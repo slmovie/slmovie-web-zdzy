@@ -222,6 +222,7 @@ const
     InfoUl: {
       listStyleType: 'none',
       padding: 0,
+      marginTop: "2.5vmax",
     },
     InfoLi: {
       fontSize: "1.7vmax",
