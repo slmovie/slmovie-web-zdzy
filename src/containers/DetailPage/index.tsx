@@ -75,7 +75,7 @@ export default class DetailPage extends React.Component<Props, States> {
   _renderDetail() {
     if (this.state.movie !== undefined) {
       return (
-        <div style={{ marginTop: "2vmax" }}>
+        <div style={{ marginTop: "2vmax", display: "flex", flexDirection: "column" }}>
           <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', textAlign: 'center', justifyItems: 'center' }}>
             <img src={this.state.movie.post} alt={"post"} style={Styles.PostImg} />
           </div>
@@ -173,7 +173,7 @@ export default class DetailPage extends React.Component<Props, States> {
   _renderOnlineDiv(title: string, webUrls: IMovieFile[] | undefined) {
     if (webUrls) {
       return (
-        <div>
+        <div style={{ marginTop: "0.5vmax" }}>
           <text style={{ fontSize: "2.5vmax", fontWeight: "bold" }}>
             {title}
           </text>
