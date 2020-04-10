@@ -7,7 +7,7 @@
  */
 const Urls = {
   WebRoot: "http://localhost:3000",
-  SearchAll: "/search/all?name=",
+  SearchAll: "/search?name=",
   Detail: "/detail?code=",
   IndexHotMovies: "/index/hotMovies",
   IndexNewMovies: "/index/newMovies?index=",

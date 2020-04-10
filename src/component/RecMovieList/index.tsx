@@ -8,16 +8,27 @@
 import React from "react";
 import MovieCard from "../MovieCard";
 import Service from "../../utils/service";
+import { IMovieDetail } from "../../typing/detail-typing";
 
-export default class RecMovieList extends React.Component {
-  constructor() {
-    super();
+interface Props {
+  movies: IMovieDetail[],
+  url: string,
+  history: any,
+}
+
+interface States {
+  movies: IMovieDetail[],
+}
+
+export default class RecMovieList extends React.Component<Props, States> {
+  constructor(props: Props) {
+    super(props);
     this.state = {
       movies: [],
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: Props) {
     if (nextProps.movies !== this.props.movies) {
       this.setState({
         movies: nextProps.movies

@@ -9,6 +9,7 @@ import Header from "../../component/Header";
 import Footer from "../../component/Footer";
 import RecMovieList from "../../component/RecMovieList";
 import PropTypes from 'prop-types';
+import { IMovieDetail } from '../../typing/detail-typing';
 
 const { Content } = Layout;
 
@@ -22,13 +23,13 @@ interface Props {
 }
 
 interface States {
-  showMovies: any,
+  showMovies: IMovieDetail[],
   total: number,
   search: string,
 }
 
 const pageSize = 30;
-let movies: any = undefined;
+let movies: IMovieDetail[] = [];
 
 export default class SearchPage extends React.Component<Props, States> {
   static contextTypes = {
@@ -37,7 +38,7 @@ export default class SearchPage extends React.Component<Props, States> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      showMovies: undefined,
+      showMovies: [],
       total: 0,
       search: props.match.params.search
     }
@@ -103,7 +104,7 @@ export default class SearchPage extends React.Component<Props, States> {
             paddingBottom: "5vmin",
           }}>
             <div style={{ textAlign: 'center', marginLeft: '3vmin' }}>
-              <RecMovieList movies={this.state.showMovies} history={this.props.history} />
+              <RecMovieList url="" movies={this.state.showMovies} history={this.props.history} />
             </div>
             <Pagination defaultCurrent={1} total={this.state.total} defaultPageSize={pageSize} onChange={(page) => {
               this.setState({ showMovies: this._getShowMovies(page - 1) });

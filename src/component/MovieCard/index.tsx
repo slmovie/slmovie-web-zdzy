@@ -7,14 +7,15 @@
  */
 import React from "react";
 import imgHolder from "../../res/image/img_holder.png";
+import { IMovieDetail } from "../../typing/detail-typing";
 
 interface Props {
-  movie: any,
+  movie: IMovieDetail,
   history: any,
 }
 
 interface States {
-  post: any,
+  post: string,
 }
 
 export default class MovieCard extends React.Component<Props, States> {
@@ -46,11 +47,7 @@ export default class MovieCard extends React.Component<Props, States> {
           display: "flex", flexDirection: "column", marginTop: "1vmin", alignItems: "center", width: "13vmax", height: "25vmax"
         }}
           onClick={() => {
-            if (this.props.movie.address === undefined) {
-              this.props.history.push('/sub/' + this.props.movie.id)
-            } else {
-              this.props.history.push('/sub/' + this.props.movie.address)
-            }
+            this.props.history.push('/sub/' + this.props.movie.id)
           }}
         >
           <div style={{ position: "relative" }}>
@@ -89,7 +86,7 @@ export default class MovieCard extends React.Component<Props, States> {
               paddingRight: 5,
             }}
             >
-              {this.props.movie.douban}
+              {this.props.movie.location}
             </text>
           </div>
           <text style={{
