@@ -171,7 +171,7 @@ export default class DetailPage extends React.Component<Props, States> {
   }
 
   _renderOnlineDiv(title: string, webUrls: IMovieFile[] | undefined) {
-    if (webUrls) {
+    if (webUrls && webUrls.length > 0) {
       return (
         <div style={{ marginTop: "0.5vmax" }}>
           <text style={{ fontSize: "2.5vmax", fontWeight: "bold" }}>
