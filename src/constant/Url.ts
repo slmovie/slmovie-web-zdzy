@@ -10,8 +10,7 @@ const Urls = {
   SearchAll: "/search?name=",
   Detail: "/detail?code=",
   IndexHotMovies: "/index/hot",
-  IndexNewMovies: "/index/newMovies?index=",
-  IndexNewTVs: "/index/newTVs?index=",
+  IndexNewMovies: "/index/new?index=",
   SLYS:"http://www.slys.in"
 };
 

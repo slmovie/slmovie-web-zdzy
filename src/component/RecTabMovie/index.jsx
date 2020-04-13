@@ -1,6 +1,8 @@
 import React from "react";
 import Tabs from "antd/es/tabs";
 import RecMovieList from "../RecMovieList";
+import { getMovieType } from "../../utils/movie-type";
+import { log } from "util";
 
 const TabPane = Tabs.TabPane;
 
@@ -9,9 +11,12 @@ class RecTabMovie extends React.Component {
     const { tabs, url } = this.props;
     const tablist = [];
     for (let i = 0; i < tabs.length; i += 1) {
+      const name = getMovieType(tabs[i])
+      const tabUrl = url + tabs[i]
+      log(url)
       tablist.push(
-        <TabPane tab={tabs[i]} key={i}>
-          <RecMovieList url={url + i} history={this.props.history} />
+        <TabPane tab={name} key={i}>
+          <RecMovieList url={tabUrl} history={this.props.history} />
         </TabPane>,
       );
     }
