@@ -6,12 +6,12 @@
  * @LastEditors: your name
  */
 const Urls = {
-  ApiRoot: "http://152.136.103.63:3010",
+  ApiRoot: "http://152.136.103.63",
   SearchAll: "/search?name=",
   Detail: "/detail?code=",
   IndexHotMovies: "/index/hot",
   IndexNewMovies: "/index/new?index=",
-  SLYS: "http://www.slys.in"
+  SLYS: "http://152.136.103.63"
 };
 
 export default Urls;
