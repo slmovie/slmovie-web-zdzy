@@ -28,7 +28,7 @@ const Styles = {
 const Header = (props) => (
   <div style={Styles.Content}>
     <div style={{ textAlign: "center" }}>
-      <a href={Urls.SLYS}>
+      <a href={Urls.SLYS} target="_blank" rel='noreferrer noopener'>
         <text style={{ color: "#fff", fontSize: "6vmin" }}>双龙影视</text>
       </a>
     </div>

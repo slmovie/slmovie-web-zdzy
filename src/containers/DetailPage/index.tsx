@@ -161,7 +161,7 @@ export default class DetailPage extends React.Component<Props, States> {
     if (file)
       return (
         <li style={Styles.UrlLi}>
-          <a href={file.url} style={{ textDecoration: 'none', fontSize: "2vmax" }}>{file.name}</a>
+          <a href={file.url} target="_blank" rel='noreferrer noopener' style={{ textDecoration: 'none', fontSize: "2vmax" }}>{file.name}</a>
           <div>
             <input style={Styles.UrlInput}
               value={file.url}
@@ -203,7 +203,7 @@ export default class DetailPage extends React.Component<Props, States> {
           marginRight: "0.5vmax",
           float: "left",
         }}>
-          <a href={file.url} style={{ display: 'inline-block', fontSize: "2vmax" }}>{file.name}</a>
+          <a href={file.url} target="_blank" rel='noreferrer noopener' style={{ display: 'inline-block', fontSize: "2vmax" }}>{file.name}</a>
         </li>
       )
   }
