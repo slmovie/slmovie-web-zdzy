@@ -44,10 +44,10 @@ export default class SearchPage extends React.Component<Props, States> {
     }
   }
   componentWillReceiveProps(nextProps: Props) {
-    this._getMovie(Urls.WebRoot + Urls.SearchAll + nextProps.match.params.search)
+    this._getMovie(Urls.ApiRoot + Urls.SearchAll + nextProps.match.params.search)
   }
   componentDidMount() {
-    this._getMovie(Urls.WebRoot + Urls.SearchAll + this.props.match.params.search);
+    this._getMovie(Urls.ApiRoot + Urls.SearchAll + this.props.match.params.search);
   }
 
   render() {

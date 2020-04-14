@@ -61,7 +61,7 @@ export default class DetailPage extends React.Component<Props, States> {
   }
 
   _getMovie() {
-    const url = Urls.WebRoot + Urls.Detail + this.props.match.params.id;
+    const url = Urls.ApiRoot + Urls.Detail + this.props.match.params.id;
     Service.getMovie(url).then((data: IMovieDetail) => {
       if (data !== undefined) {
         this.setState({ movie: data });

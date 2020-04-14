@@ -8,6 +8,7 @@
 import React from "react";
 import imgHolder from "../../res/image/img_holder.png";
 import { IMovieDetail } from "../../typing/detail-typing";
+import Urls from "../../constant/Url";
 
 interface Props {
   movie: IMovieDetail,
@@ -47,7 +48,8 @@ export default class MovieCard extends React.Component<Props, States> {
           display: "flex", flexDirection: "column", marginTop: "1vmin", alignItems: "center", width: "13vmax", height: "25vmax"
         }}
           onClick={() => {
-            this.props.history.push('/sub/' + this.props.movie.id)
+            window.open(Urls.SLYS + '/sub/' + this.props.movie.id)
+            // this.props.history.push('/sub/' + this.props.movie.id)
           }}
         >
           <div style={{ position: "relative" }}>

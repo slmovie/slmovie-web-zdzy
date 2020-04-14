@@ -10,7 +10,7 @@ const NewMovieDiv = (props) => (
   >
     <Title title1="最新" title2="电影" />
     <RecTabMovie tabs={[5, 6, 7, 4, 8, 9, 10, 11]}
-      url={RequestUrl.WebRoot + RequestUrl.IndexNewMovies}
+      url={RequestUrl.ApiRoot + RequestUrl.IndexNewMovies}
       history={props.history} />
   </div>
 );
