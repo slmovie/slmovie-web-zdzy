@@ -106,6 +106,7 @@ export default class DetailPage extends React.Component<Props, States> {
       }
       info.push(this._getInfo("导演： " + movie.director))
       info.push(this._getInfo("主演：" + movie.actor))
+      info.push(this._getInfo("更新时间：" + movie.addTime))
     }
     return info;
   }
