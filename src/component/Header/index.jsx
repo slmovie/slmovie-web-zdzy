@@ -44,7 +44,8 @@ const SearchDiv = (props) => {
         size="small"
         onSearch={value => {
           if (value.length > 0) {
-            props.history.push("/find/" + value);
+            window.open(Urls.SLYS + "/find/" + value)
+            // props.history.push("/find/" + value);
           }
         }} />
     </div>
