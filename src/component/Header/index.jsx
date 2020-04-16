@@ -17,7 +17,7 @@ const Styles = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingLeft: "10vmin",
+    paddingLeft: "7vmin",
     paddingRight: "5vmin",
     background: Color.PrimaryColor,
     height: "14vmin",
@@ -30,6 +30,9 @@ const Header = (props) => (
     <div style={{ textAlign: "center" }}>
       <a href={Urls.SLYS} target="_blank" rel='noreferrer noopener'>
         <text style={{ color: "#fff", fontSize: "6vmin" }}>双龙影视</text>
+      </a>
+      <a href={Urls.SLYS} target="_blank" rel='noreferrer noopener'>
+        <text style={{ color: "#fff", fontSize: "3vmin", marginLeft: "3vmin", textDecoration: "underline", fontStyle: "italic" }}>slys.in</text>
       </a>
     </div>
     {SearchDiv(props)}
