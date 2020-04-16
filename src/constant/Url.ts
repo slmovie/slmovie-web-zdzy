@@ -11,7 +11,7 @@ const Urls = {
   Detail: "/detail?code=",
   IndexHotMovies: "/index/hot",
   IndexNewMovies: "/index/new?index=",
-  SLYS: "http://152.136.103.63"
+  SLYS: "http://slys.in"
 };
 
 export default Urls;
