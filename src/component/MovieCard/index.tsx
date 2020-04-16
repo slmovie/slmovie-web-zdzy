@@ -48,7 +48,7 @@ export default class MovieCard extends React.Component<Props, States> {
           display: "flex", flexDirection: "column", marginTop: "1vmin", alignItems: "center", width: "13vmax", height: "25vmax"
         }}
           onClick={() => {
-            window.open(Urls.SLYS + '/sub/' + this.props.movie.id)
+            window.open(Urls.SLYS_IP + '/sub/' + this.props.movie.id)
             // this.props.history.push('/sub/' + this.props.movie.id)
           }}
         >

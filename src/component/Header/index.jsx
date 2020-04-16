@@ -28,10 +28,10 @@ const Styles = {
 const Header = (props) => (
   <div style={Styles.Content}>
     <div style={{ textAlign: "center" }}>
-      <a href={Urls.SLYS} target="_blank" rel='noreferrer noopener'>
+      <a href={Urls.SLYS_IP} target="_blank" rel='noreferrer noopener'>
         <text style={{ color: "#fff", fontSize: "6vmin" }}>双龙影视</text>
       </a>
-      <a href={Urls.SLYS} target="_blank" rel='noreferrer noopener'>
+      <a href={Urls.SLYS_URL} target="_blank" rel='noreferrer noopener'>
         <text style={{ color: "#fff", fontSize: "3vmin", marginLeft: "3vmin", textDecoration: "underline", fontStyle: "italic" }}>slys.in</text>
       </a>
     </div>
