@@ -47,7 +47,7 @@ const SearchDiv = (props) => {
         size="small"
         onSearch={value => {
           if (value.length > 0) {
-            window.open(Urls.SLYS + "/find/" + value)
+            window.open(Urls.SLYS_IP + "/find/" + value)
             // props.history.push("/find/" + value);
           }
         }} />
